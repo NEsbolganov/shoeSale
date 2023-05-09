@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Authorization Form</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <form th:object="${user}" method="post" th:action="@{/process}">
+        <h2>Authorization Form</h2>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required th:field="*{name}"><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required th:field="*{password}"><br><br>
+        <input type="submit" value="Submit" >
+    </form>
+</div>
+</body>
+</html>

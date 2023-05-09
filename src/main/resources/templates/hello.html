@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My shoe</title>
+</head>
+<header>
+    <div class="center">
+        <img src="https://freepngimg.com/thumb/shoes/28411-5-sneaker-clipart.png" alt="Shoe" width="500" height="300">
+    </div>
+</header>
+<body>
+<table id="shoe">
+    <tr>
+        <th>ID</th>
+        <th>Manufacturer</th>
+        <th>Brand</th>
+        <th>Type</th>
+        <th>Material</th>
+        <th>Size</th>
+        <th>Price</th>
+        <th>Add to Cart</th>
+    </tr>
+    <tr th:each="shoe:${shoeList}">
+        <td th:text="${shoe.id}"></td>
+        <td th:text="${shoe.manufacturer}"></td>
+        <td th:text="${shoe.brand}"></td>
+        <td th:text="${shoe.type}"></td>
+        <td th:text="${shoe.material}"></td>
+        <td th:text="${shoe.size}"></td>
+        <td th:text="${shoe.price}"></td>
+        <td>
+            <form th:action="@{/cart/add}" method="post">
+                <input type="hidden" name="id" th:value="${shoe.id}" />
+                <button type="submit">Add to Cart</button>
+            </form>
+        </td>
+    </tr>
+</table>
+<button>
+    <a th:href="@{/cart}">Go to cart page</a>
+</button>
+<button>
+    <a th:href="@{/admin}">Go to admin page</a>
+</button>
+</body>
+</html>

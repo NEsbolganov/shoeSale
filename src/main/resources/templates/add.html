@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My shoe</title>
+    <style>
+        .center {
+            text-align: center;
+        }
+        #root_container {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+
+        table {
+            margin: 25px;
+        }
+
+        th {
+            text-align: left;
+        }
+
+        th, td {
+            border-bottom: 1px solid #ddd;
+        }
+        form{
+            position: relative;
+            top: 100px;
+        }
+    </style>
+</head>
+<header>
+<div class="center">
+    <img src="https://freepngimg.com/thumb/shoes/28411-5-sneaker-clipart.png" alt="Shoe" width="500" height="300">
+</div>
+</header>
+<body>
+<div style="display: flex; align-items: center;">
+    <a th:href="@{/shoe/buy}">
+        <button>Go to buying page</button>
+    </a>
+</div>
+<div id="root_container">
+    <form method="post" th:action="@{/saveShoe}" th:object="${shoe}">
+        <table>
+            <tr>
+                <td>
+                    <input type="text" placeholder="manufacturer" th:field="*{manufacturer}">
+                </td>
+                <td>
+                    <input type="text" placeholder="brand" th:field="*{brand}">
+                </td>
+                <td>
+                    <input type="text" placeholder="size" th:field="*{size}">
+                </td>
+                <td>
+                    <input type="text" placeholder="type" th:field="*{type}">
+                </td>
+                <td>
+                    <input type="text" placeholder="material" th:field="*{material}">
+                </td>
+                <td>
+                    <input type="text" placeholder="price" th:field="*{price}">
+                </td>
+                <td>
+                    <input type="submit" value="save">
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
